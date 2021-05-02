@@ -5,9 +5,9 @@ import {Col,Layout, Row, Modal, Tag} from 'antd'
 
 import {Typography} from 'antd';
 
-import {usePosition} from './hooks/usePosition'
 
-import {MapContainer, TileLayer,Marker, Popup, useMapEvents} from 'react-leaflet';
+
+import {MapContainer, TileLayer,Marker, Popup} from 'react-leaflet';
 
 import { useState } from 'react';
 import 'leaflet/dist/leaflet.css'
@@ -19,7 +19,7 @@ import L from 'leaflet'
 import Icon from './svgs/iconfinder_map-marker_299087.svg'
 import Paragraph from 'antd/lib/typography/Paragraph';
 
-const {Header, Footer, Sider, Content} = Layout;
+const {Header, Footer, Content} = Layout;
 
 const {Title} = Typography;
 
@@ -30,39 +30,8 @@ const markerIcon = new L.Icon({
 });
 
 
-function LocationMarker() {
-  const [position, setPosition] = useState(null)
-  
-  const map = useMapEvents({
-    click() {
-      map.locate()
-    },
-    locationfound(e) {
-      setPosition(e.latlng)
-      map.flyTo(e.latlng, map.getZoom())
-    },
-  })
 
-  return position === null ? null : (
-    <Marker position={position}>
-      {console.log(position)}
-      <Popup>You are here</Popup>
-    </Marker>
-  )
-}
-
-function App() {
-  const [position, setPosition] = useState(null)
-  const {
-    latitude,
-    longitude,
-    speed,
-    timestamp,
-    accuracy,
-    error,
-  } = usePosition();
-
-  
+function App() {  
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {

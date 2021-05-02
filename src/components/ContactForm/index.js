@@ -1,4 +1,4 @@
-import { lazy } from "react";
+
 import { Row, Col } from "antd";
 
 import useForm from "./useForm";
@@ -8,15 +8,15 @@ import * as S from "./styles";
 
 import {Button as AButton} from 'antd';
 
-import Block from '../Block'
+
 import Input from '../../common/Input'
-import Button from '../../common/Button'
+
 import TextArea from '../../common/TextArea'
 
-import { Select, Typography } from 'antd'
+import { Select} from 'antd'
 
 const { Option } = Select;
-const {Title} = Typography;
+
 
 
 const Contact = ({id }) => {
